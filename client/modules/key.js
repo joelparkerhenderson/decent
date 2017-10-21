@@ -43,13 +43,18 @@ exports.create = function (api) {
                   h('hr'),
                   h('form',
                     importKey,
-                    importRemote,
                     h('button.btn.btn-success', {onclick: function (e){
                       if(importKey.value) {
                         localStorage['browser/.decent/secret'] = importKey.value.replace(/\s+/g, ' ')
                         e.preventDefault()
                         alert('Your public/private key has been updated')
                       }
+                      location.hash = ""
+                      location.reload()
+                    }}, 'Import key'),
+                    h('hr'),
+                    importRemote,
+                    h('button.btn.btn-success', {onclick: function (e){
                       if(importRemote.value) {
                         localStorage.remote = importRemote.value
                         e.preventDefault()
@@ -57,7 +62,7 @@ exports.create = function (api) {
                       }
                       location.hash = ""
                       location.reload()
-                    }}, 'Import')
+                    }}, 'Import remote')
                   )
                 )
               )
