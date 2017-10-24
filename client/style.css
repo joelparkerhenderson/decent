@@ -134,8 +134,8 @@ button.btn-search {
 .navbar li {
   margin-top: .3em;
   float: left;
-  padding-right: .8em;
-  padding-left: 0em;
+  padding-right: .6em;
+  padding-left: .3em;
   list-style-type: none;
 }
 
@@ -173,7 +173,7 @@ hr {
 .screen {
   width: 100%;
   position: absolute;
-  top: 2.5em; bottom: 0;
+  top: 2.7em; bottom: 0;
   left: 0; right: 0;
   overflow-y: hidden;
 }
