@@ -1,6 +1,6 @@
 {
   "name": "decent",
-  "version": "3.9.4",
+  "version": "3.9.5",
   "description": "A decent(tralized) network for communication and development",
   "scripts": {
     "start": "node decent server",
@@ -72,7 +72,7 @@
     "rc": "^1.2.1",
     "rimraf": "^2.4.2",
     "secret-stack": "^4.0.0",
-    "secure-scuttlebutt": "^16.3.7",
+    "secure-scuttlebutt": "^16.3.8",
     "simple-mime": "^0.1.0",
     "split-buffer": "^1.0.0",
     "ssb-avatar": "^0.2.0",
