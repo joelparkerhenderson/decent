@@ -15,20 +15,22 @@ exports.gives = {
 exports.create = function (api) {
   var exports = {}
  
-  exports.message_content = function (msg) {
+  exports.message_content = /* = function (msg) {
     if(msg.value.content.type == 'about') {
       var about = msg.value.content
       if (msg.value.content.description) {
         return h('span', api.markdown('**Description:** ' + about.description))
       }
     }
-  }
+  }*/
+
+
   exports.message_content_mini = function (msg) {
     if(msg.value.content.type == 'about') {
       var about = msg.value.content
-      // var id = msg.value.content.about
+      var id = msg.value.content.about
       if (msg.value.content.name) {
-        return h('span', ' names themselves ', about.name)
+        return h('span', ' identifies as ', about.name)
       }
       if (msg.value.content.image) {
         return h('span', ' identifies as ', h('img.avatar--thumbnail', {src: api.blob_url(about.image)}))
@@ -36,6 +38,9 @@ exports.create = function (api) {
       if (msg.value.content.loc) {
         return h('span', h('strong', 'Location: '), about.loc)
       }
+      if (msg.value.content.description) {
+        return h('span', api.markdown('**Description:** ' + about.description))
+      } else { return }
     }
   }
   return exports
