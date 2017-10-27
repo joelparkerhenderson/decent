@@ -21,7 +21,7 @@ exports.create = function (api) {
               h('div.column.scroller__content',
                 h('div.message',
                   h('h1', 'Your Key'),
-                  h('p', {innerHTML: 'Your Decent public/private key is: <pre><code>' + localStorage['browser/.decent/secret'] + '</code></pre>'},
+                  h('p', {innerHTML: 'Your Decent public/private key is: <pre><code>' + localStorage['/.decent/secret'] + '</code></pre>'},
                     h('button.btn.btn-danger', {onclick: function (e){
                       localStorage['browser/.decent/secret'] = ''
                       alert('Your public/private key has been deleted')
@@ -45,7 +45,7 @@ exports.create = function (api) {
                     importKey,
                     h('button.btn.btn-success', {onclick: function (e){
                       if(importKey.value) {
-                        localStorage['browser/.decent/secret'] = importKey.value.replace(/\s+/g, ' ')
+                        localStorage['/.decent/secret'] = importKey.value.replace(/\s+/g, ' ')
                         e.preventDefault()
                         alert('Your public/private key has been updated')
                       }

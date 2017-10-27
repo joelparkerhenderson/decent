@@ -1,6 +1,6 @@
 {
   "name": "decent",
-  "version": "3.9.5",
+  "version": "3.10.0",
   "description": "A decent(tralized) network for communication and development",
   "scripts": {
     "start": "node decent server",
@@ -81,7 +81,7 @@
     "ssb-feed": "^2.2.1",
     "ssb-friends": "^2.2.2",
     "ssb-git": "^0.5.0",
-    "ssb-keys": "^7.0.10",
+    "ssb-keys": "^7.0.12",
     "ssb-links": "^2.0.0",
     "ssb-markdown": "^3.3.0",
     "ssb-marked": "^0.7.2",
