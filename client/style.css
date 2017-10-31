@@ -1,8 +1,6 @@
 /* functional */
 
 html, body {
-  max-width: 100%;
-  overflow-x: hidden;
   margin: 0;
   font-size: 14px; line-height: 20px;
   color: #333;
@@ -29,6 +27,8 @@ pre {
   padding: 0 3px 2px;
   font-size: 12px;
   color: #333333;
+  word-break: break-all;
+  word-wrap: break-word;
 }
 
 code {
@@ -38,13 +38,9 @@ code {
 }
 
 pre {
-  display: block;
   margin: 0 0 10px;
   font-size: 13px;
   line-height: 20px;
-  word-break: break-all;
-  word-wrap: break-word;
-  white-space: pre;
   white-space: pre-wrap;
   background-color: #f5f5f5;
   border: 1px solid #ccc;
@@ -139,20 +135,6 @@ button.btn-search {
   list-style-type: none;
 }
 
-pre {
-    height: auto;
-    max-height: 200px;
-    overflow: auto;
-    word-break: normal !important;
-    word-wrap: normal !important;
-    white-space: pre !important;
-}
-
-code {
-    word-break: break-word;
-}
-
-
 h1, h2, h3, h4, h5, h6 {
   font-size: 1.2em;
   margin-top: .35ex;
@@ -216,11 +198,6 @@ hr {
 .scroll-x {
   overflow-x: auto;
   min-width: 0px;
-}
-
-pre {
-  white-space: pre-wrap;
-  word-wrap: break-word;
 }
 
 .wide {
