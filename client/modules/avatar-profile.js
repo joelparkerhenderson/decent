@@ -26,14 +26,14 @@ exports.create = function (api) {
       edit = h('p', h('a', {href: '#Edit'}, h('button.btn.btn-primary', 'Edit profile')))
     } else { edit = api.avatar_action(id)}
 
-    pull(api.sbot_query({query: [{$filter: { value: { author: id, content: {type: 'about', loc: {"$truthy": true}}}}}], limit: 5, reverse: true}),
+    pull(api.sbot_query({query: [{$filter: { value: { author: id, content: {type: 'location'}}}}], limit: 1, reverse: true}),
     pull.drain(function (data){
       if(data.value.content.loc) { 
         loco.appendChild(h('span', h('strong', 'Location: '), data.value.content.loc))
       }
     }))
 
-    pull(api.sbot_query({query: [{$filter: { value: { author: id, content: {type: 'about', description: {"$truthy": true}}}}}], limit: 5, reverse: true}),
+    pull(api.sbot_query({query: [{$filter: { value: { author: id, content: {type: 'description'}}}}], limit: 1, reverse: true}),
     pull.drain(function (data){
       if(data.value.content.description) {
         description.appendChild(h('span', h('strong', 'Description: '), data.value.content.description))

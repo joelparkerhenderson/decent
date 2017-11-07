@@ -44,7 +44,7 @@ exports.create = function (api) {
                 h('button.btn.btn-primary', 'Preview', {onclick: function () {
                   if(locInput.value) {
                     api.message_confirm({
-                      type: 'about',
+                      type: 'loc',
                       about: id,
                       loc: locInput.value || undefined
                     })
@@ -55,7 +55,7 @@ exports.create = function (api) {
                 h('button.btn.btn-primary', 'Preview', {onclick: function (){
                   if(descInput.value) {
                     api.message_confirm({
-                      type: 'about',
+                      type: 'description',
                       about: id,
                       description: descInput.value || undefined      
                     })
