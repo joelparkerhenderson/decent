@@ -23,7 +23,7 @@ exports.create = function (api) {
                   h('h1', 'Your Key'),
                   h('p', {innerHTML: 'Your Decent public/private key is: <pre><code>' + localStorage['/.decent/secret'] + '</code></pre>'},
                     h('button.btn.btn-danger', {onclick: function (e){
-                      localStorage['browser/.decent/secret'] = ''
+                      localStorage['/.decent/secret'] = ''
                       alert('Your public/private key has been deleted')
                       e.preventDefault()
                       location.hash = ""
