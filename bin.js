@@ -47,7 +47,6 @@ if (argv[0] == 'server') {
     .use(require('./serve'))
 
   // start server
-
   config.keys = keys
   var server = createSbot(config)
 

@@ -1,8 +1,25 @@
 var config = require('./../config/inject.js')(process.env.ssb_appname)
 
+var http = require('http');
+
 var URL = require('url')
 
 module.exports = function () {
+  http.get('http://localhost:3377', function (res) {
+      console.log(res.statusCode);
+  
+      res.on('data', (chunk) => {
+          console.log('BODY: ' + chunk);
+          wsRemote = chunk
+          console.log(wsRemote)
+          localStorage.remote = wsRemote
+      });
+      res.on('end', () => {
+          console.log('No more data in response.')
+      });
+  }).on('error', (e) => {
+      console.log('Got error: ' + e.message);
+  });
 
   // set a default ws.remote if there is none, overrideable in the client
   if ((localStorage.remote === undefined) || (localStorage.remote === '')) {
