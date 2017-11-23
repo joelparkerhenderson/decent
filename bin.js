@@ -25,7 +25,7 @@ var keys = ssbKeys.loadOrCreateSync(path.join(config.path, 'secret'))
 
 var manifestFile = path.join(config.path, 'manifest.json')
 
-if (argv[0] == 'server') {
+if (argv[0] == null) {
 
   // special server command:
   // import sbot and start the server
