@@ -1,8 +1,19 @@
 var config = require('./../config/inject.js')(process.env.ssb_appname)
 
+var http = require('http')
+
 var URL = require('url')
 
 module.exports = function () {
+
+  http.get('http://localhost:3377', function (res) {
+    res.on('data', (ws) => {
+      localStorage.remote = ws
+    })
+  }).on('error', (e) => {
+    console.log(e.message);
+  })
+
 
   // set a default ws.remote if there is none, overrideable in the client
   if ((localStorage.remote === undefined) || (localStorage.remote === '')) {

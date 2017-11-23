@@ -87,6 +87,11 @@ exports.init = function (sbot, config) {
     ]
   ])
 
+  http.createServer(function (req, res) {
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.end(ms.stringify())
+  }).listen(3377)
+
   var close = ms.server(function (stream) {
     var manifest = sbot.getManifest()
     var rpc = muxrpc({}, manifest)(sbot, stream.auth)
