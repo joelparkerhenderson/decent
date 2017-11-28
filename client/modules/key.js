@@ -48,7 +48,7 @@ exports.create = function (api) {
                     importKey,
                     h('button.btn.btn-success', {onclick: function (e){
                       if(importKey.value) {
-                        localStorage['/.decent/secret'] = importKey.value.replace(/\s+/g, ' ')
+                        localStorage[config.path + '/secret'] = importKey.value.replace(/\s+/g, ' ')
                         e.preventDefault()
                         alert('Your public/private key has been updated')
                       }
