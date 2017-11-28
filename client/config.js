@@ -7,7 +7,7 @@ module.exports = function () {
 
   // set a default ws.remote if there is none, overrideable in the client
   if ((localStorage.remote === undefined) || (localStorage.remote === '')) {
-    http.get('http://localhost:3377', function (res) {
+    http.get('http://localhost:3379', function (res) {
       res.on('data', (ws) => {
         localStorage.remote = ws
       })
