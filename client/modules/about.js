@@ -36,10 +36,10 @@ exports.create = function (api) {
     } 
     if (msg.value.content.type == 'about') {
       if (msg.value.content.name) {
-        return h('span', ' identifies as ', about.name)
+        return h('span', 'identifies as ', about.name)
       }
       if (msg.value.content.image) {
-        return h('span', ' identifies as ', h('img.avatar--thumbnail', {src: api.blob_url(about.image)}))
+        return h('span', 'identifies as ', h('img.avatar--thumbnail', {src: api.blob_url(about.image)}))
       }
     } else { return }
   }
