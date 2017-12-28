@@ -6,15 +6,17 @@ var merge = require('deep-extend')
 
 var id = require('ssb-keys')
 
-console.log(id)
-
 var RC = require('rc')
 
 var SEC = 1e3
 var MIN = 60*SEC
 
 module.exports = function (name, override) {
-  //uncomment the network name, and equivilent config, you want to use before building and starting decent. To generate a new caps use `> crypto.randomBytes(32).toString('base64')` in your node repl
+  //uncomment the network name, and equivilent config, you want to use before building and starting decent. 
+
+  //To generate a new caps use `> crypto.randomBytes(32).toString('base64')` in your node repl
+
+  // this should be passed via an argumenet from the main app
 
   name = name || 'decent'
   //name = name || 'ssb'
