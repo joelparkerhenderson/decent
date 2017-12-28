@@ -169,6 +169,12 @@ hr {
   overflow-y: hidden;
 }
 
+@media only screen and (max-width: 500px) {
+  .screen {
+    top: 4em;
+  }
+}
+
 .column {
   display: flex;
   flex-direction: column;
