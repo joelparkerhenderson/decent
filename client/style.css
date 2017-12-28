@@ -97,6 +97,15 @@ button.btn-search {
   margin-right: 1em;
 }
 
+.message, .message > * {
+  animation: fadein .5s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
 .message {
   border: 1px solid #eee;
   max-width: 100%;
