@@ -21,10 +21,18 @@ a:focus {
   text-decoration: underline;
 }
 
+pre {
+  width: 100%;
+  display: block;
+}
+
+code {
+  display: inline-block;
+  vertical-align: bottom;  
+}
+
 code, pre {
-display: block;
 overflow: auto;
-width: 100%;
 word-break: break-all;
 word-wrap: break-word;
 white-space: pre;
