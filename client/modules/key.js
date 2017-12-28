@@ -34,9 +34,9 @@ exports.create = function (api) {
                     }}, 'Delete Key')
                   ),
                   h('hr'),
-                  h('p', {innerHTML: 'Your Decent websocket remote is: <pre>' + localStorage.remote + '</pre>'},
+                  h('p', {innerHTML: 'Your Decent websocket remote is: <pre>' + localStorage[config.path + '/remote'] + '</pre>'},
                     h('button.btn.btn-danger', {onclick: function (e){
-                      localStorage.remote = ''
+                      localStorage[config.path + '/remote'] = ''
                       alert('Your remote pub has been deleted')
                       e.preventDefault()
                       location.hash = ""
@@ -59,7 +59,7 @@ exports.create = function (api) {
                     importRemote,
                     h('button.btn.btn-success', {onclick: function (e){
                       if(importRemote.value) {
-                        localStorage.remote = importRemote.value
+                        localStorage[config.path + '/remote'] = importRemote.value
                         e.preventDefault()
                         alert('Your websocket remote has been updated')
                       }
