@@ -45,6 +45,19 @@ if (argv[0] == null) {
     .use(require('./plugins/ws'))
     .use(require('ssb-ebt'))
     .use(require('./serve'))
+    .use({
+      name: 'share-ws',
+      version: '1.0.0',
+      init: function (sbot) {
+        sbot.ws.use(function (req, res, next) {
+          res.setHeader('Access-Control-Allow-Origin', '*')
+          if(req.url == '/get-address')
+            res.end(sbot.ws.getAddress())
+          else next()
+        })
+      }
+    })
+
 
   // start server
 

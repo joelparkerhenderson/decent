@@ -6,9 +6,6 @@ var muxrpc = require('muxrpc')
 var pull = require('pull-stream')
 var JSONApi = require('./json-api')
 
-//var cap =
-  //new Buffer('1KHLiKZvAvjbY1ziZEHMXawbCEIM6qwjCDm3VYRan/s=', 'base64')
-
 function toSodiumKeys(keys) {
   return {
     publicKey:
@@ -35,7 +32,6 @@ var READ_AND_ADD = [ //except for add, of course
   'blobs.get',
   'blobs.changes',
   'blobs.createWants',
-
 
   'add',
 
@@ -64,7 +60,8 @@ exports.init = function (sbot, config) {
   if(!port)
     port = 1024+(~~(Math.random()*(65536-1024)))
 
-  var server = http.createServer(JSONApi(sbot)).listen(port)
+  var layers = []
+  var server = http.createServer(JSONApi(sbot, layers)).listen(port)
 
   function _auth (id, cb) {
     cb(null, {allow: READ_AND_ADD, deny: null})
@@ -75,7 +72,7 @@ exports.init = function (sbot, config) {
       WS({server: server, port: port, host: config.host || 'localhost'}),
       SHS({
         keys: toSodiumKeys(config.keys),
-        appKey: (config.caps && config.caps.shs) || cap,
+        appKey: (config.caps && new Buffer(config.caps.shs, "base64")) || cap,
         auth: function (id, cb) {
           sbot.auth(toId(id), function (err, allowed) {
             if(err || allowed) cb(err, allowed)
@@ -86,11 +83,6 @@ exports.init = function (sbot, config) {
       })
     ]
   ])
-
-  http.createServer(function (req, res) {
-    res.setHeader('Access-Control-Allow-Origin', '*')
-    res.end(ms.stringify())
-  }).listen(3379)
 
   var close = ms.server(function (stream) {
     var manifest = sbot.getManifest()
@@ -108,15 +100,12 @@ exports.init = function (sbot, config) {
   return {
     getAddress: function () {
       return ms.stringify()
+    },
+    use: function (handler) {
+      layers.push(handler)
     }
 
   }
 }
-
-
-
-
-
-
 
 

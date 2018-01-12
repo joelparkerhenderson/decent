@@ -6,17 +6,22 @@ var URL = require('url')
 module.exports = function () {
 
   // set a default ws.remote if there is none, overrideable in the client
-  if ((localStorage[config.path + '/remote'] === undefined) || (localStorage[config.path + '/remote'] === '')) {
-    http.get('http://localhost:3379', function (res) {
+   if ((localStorage[config.path + '/remote'] === undefined) || (localStorage[config.path + '/remote'] === '')) {
+    http.get('http://localhost:'+ config.ws.port + '/get-address', function (res) {
       res.on('data', (ws) => {
-        localStorage[config.path + '/remote'] = ws
+        ws = ws + ''
+        if (ws.startsWith('ws://')) {
+          localStorage[config.path + '/remote'] = ws
+        } else {
+          console.log(ws + 'is not a valid ws address')
+        }
       })
     }).on('error', (e) => {
-      console.log(e.message);
+      console.log(e.message)
       localStorage[config.path + '/remote'] = config.ws.remote
     })
   }
-  
+ 
   var remote = 'undefined' === typeof localStorage
     ? null //'ws://localhost:8989~shs:' + require('./keys')
     : localStorage[config.path + '/remote']
