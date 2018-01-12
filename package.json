@@ -1,6 +1,6 @@
 {
   "name": "decent",
-  "version": "3.12.3",
+  "version": "3.13.0",
   "description": "A decent(tralized) network for communication and development",
   "scripts": {
     "start": "node bin",
@@ -79,6 +79,7 @@
     "ssb-query": "^1.0.0",
     "ssb-ref": "^2.7.1",
     "ssb-sort": "^1.0.0",
+    "ssb-ws": "^2.0.0",
     "stack": "^0.1.0",
     "statistics": "^3.0.0",
     "stream-to-pull-stream": "^1.6.10",
