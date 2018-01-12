@@ -53,9 +53,10 @@ module.exports = function (name, override) {
 
   if (name === 'testnet') {
     network = {   
-      port: 3333,
+      port: 9999,
       ws: {
-        port: 3939
+        port: 9191,
+        remote: 'ws://10.0.0.16:9191~shs:qlUUU22SeD5ZPvt1S4L0Ydr4UijjJsc0b3kTTMXfjNk='
       }, 
       caps: {
         shs: 'sR74I0+OW6LBYraQQ2YtFtqV5Ns77Tv5DyMfyWbrlpI=',
@@ -65,6 +66,7 @@ module.exports = function (name, override) {
   }
   
   var HOME = home() || 'browser' //most probably browser
+
   return RC(name, merge(network, {
      //standard stuff that probably doesn't need to change below
     host: nonPrivate.v4 || '',
