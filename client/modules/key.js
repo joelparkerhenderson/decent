@@ -15,6 +15,7 @@ exports.create = function (api) {
       if(path === 'Key') {
         if(process.title === 'browser') {
           console.log(config.path)
+          var appName = h('input.import', {placeholder: localStorage.appname, name:'textarea', style: 'width: 50%'})
           var importKey = h('textarea.import', {placeholder: 'Import your Decent public/private key', name: 'textarea', style: 'width: 97%; height: 100px;'})
           var importRemote = h('textarea.import', {placeholder: 'Import a new Decent websocket remote', name: 'textarea', style: 'width: 97%;'})
           var content = h('div.column.scroller__content')
@@ -65,7 +66,18 @@ exports.create = function (api) {
                       }
                       location.hash = ""
                       location.reload()
-                    }}, 'Import remote')
+                    }}, 'Import remote'),
+                    h('hr'),
+                    appName,
+                    h('button.btn.btn-success', {onclick: function (e){
+                      if(appName.value) {
+                        localStorage.appname = appName.value
+                        e.preventDefault()
+                        alert('Your appname is set to '+ localStorage.appname)
+                      }
+                      location.hash = ""
+                      location.reload()
+                    }}, 'Change appname'),
                   )
                 )
               )

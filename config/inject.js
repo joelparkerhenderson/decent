@@ -11,7 +11,7 @@ module.exports = function (name, override) {
   //name = name || 'ssb'
   //name = name || 'testnet'
   if(name == null)
-    name = 'decent' || localStorage.appname
+    name = localStorage.appname || 'decent'
 
   console.log('Using the ' + name + ' config')
 
