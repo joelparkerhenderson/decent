@@ -1,14 +1,14 @@
-var fs           = require('fs')
-var path         = require('path')
-var ssbKeys      = require('ssb-keys')
-var stringify    = require('pull-stringify')
+var fs = require('fs')
+var path = require('path')
+var ssbKeys = require('ssb-keys')
+var stringify = require('pull-stringify')
+var yargs = require('yargs').argv
 
-var config = require('./config/inject')(process.env.ssb_appname)
+var config = require('./config/inject')(yargs.appname || 'decent')
 
 config.keys = ssbKeys.loadOrCreateSync(path.join(config.path, 'secret'))
 
 var manifestFile = path.join(config.path, 'manifest.json')
-
 
 var createSbot = require('scuttlebot')
   .use(require('scuttlebot/plugins/master'))
