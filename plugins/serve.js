@@ -7,7 +7,7 @@ exports.version = '1.0.0'
 
 exports.init = function(sbot) {
   http.createServer( 
-    serve({ root: __dirname + '/build/'})
+    serve({ root: __dirname + './../build/'})
   ).listen(3001)
 
   open('http://localhost:3001')
