@@ -24,26 +24,6 @@ var createSbot = require('scuttlebot')
   .use(require('./plugins/ws'))
   .use(require('./plugins/serve'))
 
-
-
-
-/*var createSbot = require('./lib')
-  .use(require('./plugins/master'))
-  .use(require('./plugins/gossip'))
-  .use(require('./plugins/replicate'))
-  .use(require('ssb-friends'))
-  .use(require('ssb-blobs'))
-  .use(require('ssb-query'))
-  .use(require('ssb-links'))
-  .use(require('ssb-ebt'))
-  .use(require('./plugins/invite'))
-  .use(require('./plugins/local'))
-  .use(require('./plugins/ws'))
-  .use(require('./plugins/serve'))
-*/
-
-
-
 var server = createSbot(config)
 
 fs.writeFileSync(manifestFile, JSON.stringify(server.getManifest(), null, 2))
