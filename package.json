@@ -4,7 +4,7 @@
   "description": "A decent(tralized) network for communication and development",
   "scripts": {
     "start": "node bin",
-    "build": "browserify client/index.js > build/build.js",
+    "build": "mkdir -p build && browserify client/index.js | indexhtmlify > build/index.html",
     "fonts": "git clone ssb://%XoC0EPXVomSYODRk0g9w6iGuD/vPCjinTVVW6Dz1hEQ=.sha256 build/ssp"
   },
   "author": "Ev Bogue",
