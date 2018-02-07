@@ -3,31 +3,13 @@ var ssbKeys = require('ssb-keys')
 var ref = require('ssb-ref')
 var Reconnect = require('pull-reconnect')
 var path = require('path')
-var config = require('../../config/inject')(process.env.ssb_appname)
-config.keys = ssbKeys.loadOrCreateSync(path.join(config.path, 'secret'))
 
-function Hash (onHash) {
-  var buffers = []
-  return pull.through(function (data) {
-    buffers.push('string' === typeof data
-      ? new Buffer(data, 'utf8')
-      : data
-    )
-  }, function (err) {
-    if(err && !onHash) throw err
-    var b = buffers.length > 1 ? Buffer.concat(buffers) : buffers[0]
-    var h = '&'+ssbKeys.hash(b)
-    onHash && onHash(err, h)
-  })
-}
+var config = require('../config')().config
 
 var createClient = require('../../plugins/client')
 
-var createConfig = require('../../config/inject')
-
 var createFeed   = require('ssb-feed')
 var keys = require('../keys')
-var ssbKeys = require('ssb-keys')
 
 var cache = CACHE = {}
 
@@ -56,7 +38,7 @@ module.exports = {
 
   create: function (api) {
 
-    var opts = createConfig()
+    var opts = config
     var sbot = null
     var connection_status = []
 
