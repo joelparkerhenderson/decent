@@ -8,8 +8,6 @@ var SEC = 1e3
 var MIN = 60*SEC
 
 module.exports = function (name, override) {
-  //name = name || 'ssb'
-  //name = name || 'testnet'
   if(name == null)
     name = localStorage.appname || 'decent'
 
@@ -61,6 +59,7 @@ module.exports = function (name, override) {
   var HOME = home() || 'browser' //most probably browser
 
   return RC(name, merge(network, {
+    name: name,
      //standard stuff that probably doesn't need to change below
     host: nonPrivate.v4 || '',
     timeout: 0,
