@@ -1,6 +1,7 @@
 'use strict'
 var ref = require('ssb-ref')
-var ssbClient = require('../../plugins/client')
+var ssbClient = require('ssb-client')
+//var ssbClient = require('../../plugins/client')
 var id = require('../keys').id
 var h = require('hyperscript')
 

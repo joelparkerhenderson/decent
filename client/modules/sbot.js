@@ -6,7 +6,8 @@ var path = require('path')
 
 var config = require('../config')().config
 
-var createClient = require('../../plugins/client')
+var createClient = require('ssb-client')
+//var createClient = require('../../plugins/client')
 
 var createFeed   = require('ssb-feed')
 var keys = require('../keys')

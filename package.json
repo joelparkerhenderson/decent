@@ -1,6 +1,6 @@
 {
   "name": "decent",
-  "version": "3.14.0",
+  "version": "4.0.0",
   "description": "A decent(tralized) network for communication and development",
   "scripts": {
     "start": "node bin",
@@ -66,6 +66,7 @@
     "split-buffer": "^1.0.0",
     "ssb-avatar": "^0.2.0",
     "ssb-blobs": "^1.1.4",
+    "ssb-client": "^4.5.3",
     "ssb-ebt": "^2.0.0",
     "ssb-feed": "^2.3.0",
     "ssb-friends": "^2.4.0",
