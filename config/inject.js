@@ -9,7 +9,7 @@ var MIN = 60*SEC
 
 module.exports = function (name, override) {
   if(name == null)
-    name = localStorage.appname || 'decent'
+    name = 'decent'
 
   console.log('Using the ' + name + ' config')
 
@@ -32,8 +32,7 @@ module.exports = function (name, override) {
     network = {
       port: 3333,
       ws: {
-        port: 3939,
-        remote: 'ws://decent.evbogue.com:3939~shs:hvITDG3iM3iJEy91XmlBKKf4VHgzU+0LLH/VD+AVhOE='
+        port: 3939
       }, 
       caps: { 
         shs: 'EVRctE2Iv8GrO/BpQCF34e2FMPsDJot9x0j846LjVtc=',
