@@ -3,6 +3,7 @@ var path = require('path')
 var ssbKeys = require('ssb-keys')
 var stringify = require('pull-stringify')
 var yargs = require('yargs').argv
+var open = require('opener')
 
 var config = require('./config/inject')(yargs.appname || 'decent')
 
@@ -46,6 +47,8 @@ var createSbot = require('scuttlebot')
       })
     }
   })
+
+open('http://localhost:' + config.ws.port)
 
 var server = createSbot(config)
 
