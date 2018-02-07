@@ -32,15 +32,11 @@ var createSbot = require('scuttlebot')
     init: function (sbot) {
       sbot.ws.use(function (req, res, next) {
         var send = {} 
-        console.log(config)
-        delete config.keys
         send = config
-    
+        delete send.keys
         send.address = sbot.ws.getAddress()
         if(req.url == '/')
           res.end(decentClient)
-        if(req.url == '/get-address')
-          res.end(sbot.ws.getAddress())
         if(req.url == '/get-config')
           res.end(JSON.stringify(send))
         else next()
