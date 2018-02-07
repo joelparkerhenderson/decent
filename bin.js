@@ -25,7 +25,6 @@ var createSbot = require('scuttlebot')
   .use(require('scuttlebot/plugins/invite'))
   .use(require('scuttlebot/plugins/local'))
   .use(require('./plugins/ws'))
-  //.use(require('./plugins/serve'))
   .use({
     name: 'serve',
     version: '1.0.0',
