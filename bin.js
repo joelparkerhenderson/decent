@@ -10,6 +10,8 @@ config.keys = ssbKeys.loadOrCreateSync(path.join(config.path, 'secret'))
 
 var manifestFile = path.join(config.path, 'manifest.json')
 
+var decentClient = fs.readFileSync(path.join('./build/index.html'))
+
 var createSbot = require('scuttlebot')
   .use(require('scuttlebot/plugins/master'))
   .use(require('scuttlebot/plugins/gossip'))
@@ -22,7 +24,31 @@ var createSbot = require('scuttlebot')
   .use(require('scuttlebot/plugins/invite'))
   .use(require('scuttlebot/plugins/local'))
   .use(require('./plugins/ws'))
-  .use(require('./plugins/serve'))
+  //.use(require('./plugins/serve'))
+  .use({
+    name: 'serve',
+    version: '1.0.0',
+    init: function (sbot) {
+      sbot.ws.use(function (req, res, next) {
+        var send = {} 
+        console.log(config)
+        send.ws = config.ws
+        send.port = config.port
+        send.caps = config.caps
+        send.name = config.name
+        send.host = config.host
+    
+        send.address = sbot.ws.getAddress()
+        if(req.url == '/')
+          res.end(decentClient)
+        if(req.url == '/get-address')
+          res.end(sbot.ws.getAddress())
+        if(req.url == '/get-config')
+          res.end(JSON.stringify(send))
+        else next()
+      })
+    }
+  })
 
 var server = createSbot(config)
 
