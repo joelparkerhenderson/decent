@@ -20,8 +20,6 @@ module.exports = function () {
     var remote = config.address
   }
 
-  console.log(remote)
-
   var blobsUrl = host + '/blobs/get'
 
   return {
