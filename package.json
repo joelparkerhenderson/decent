@@ -1,10 +1,10 @@
 {
   "name": "decent",
-  "version": "4.0.1",
+  "version": "4.1.0",
   "description": "A decent(tralized) network for communication and development",
   "scripts": {
     "start": "node bin server",
-    "build": "mkdir -p build && browserify client/index.js | indexhtmlify > build/index.html",
+    "build": "mkdir -p build && browserify node_modules/minbase/index.js | indexhtmlify > build/index.html",
     "fonts": "git clone ssb://%XoC0EPXVomSYODRk0g9w6iGuD/vPCjinTVVW6Dz1hEQ=.sha256 build/ssp"
   },
   "author": "Ev Bogue",
@@ -32,6 +32,7 @@
     "is-visible": "^2.1.1",
     "map-filter-reduce": "^3.0.1",
     "mdmanifest": "^1.0.4",
+    "minbase": "^3.0.6",
     "mkdirp": "~0.5.0",
     "multiblob-http": "^0.2.0",
     "multicb": "^1.2.2",
