@@ -45,8 +45,7 @@ module.exports = function (name, override) {
     network = {   
       port: 9999,
       ws: {
-        port: 9191,
-        remote: 'ws://10.0.0.16:9191~shs:qlUUU22SeD5ZPvt1S4L0Ydr4UijjJsc0b3kTTMXfjNk='
+        port: 9191
       }, 
       caps: {
         shs: 'sR74I0+OW6LBYraQQ2YtFtqV5Ns77Tv5DyMfyWbrlpI=',
