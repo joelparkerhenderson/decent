@@ -1,5 +1,5 @@
 {
-  "name": "decent",
+  "name": "decent-ssb",
   "version": "4.4.0",
   "description": "A decent(tralized) network for communication and development",
   "scripts": {
@@ -12,7 +12,7 @@
   "dependencies": {
     "deep-extend": "^0.5.0",
     "emoji-server": "^1.0.0",
-    "minbase": "^3.5.0",
+    "minbase": "^3.5.1",
     "multiblob-http": "^0.3.1",
     "multiserver": "^1.10.0",
     "muxrpc": "^6.3.3",
