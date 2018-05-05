@@ -12,7 +12,7 @@
   "dependencies": {
     "deep-extend": "^0.5.0",
     "emoji-server": "^1.0.0",
-    "minbase": "^3.4.0",
+    "minbase": "^3.5.0",
     "multiblob-http": "^0.3.1",
     "multiserver": "^1.10.0",
     "muxrpc": "^6.3.3",
