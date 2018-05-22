@@ -4,12 +4,14 @@
   "description": "A decent(tralized) network for communication and development",
   "scripts": {
     "start": "node bin server",
+    "ssb": "node bin server --appname=ssb",
     "build": "mkdir -p build && browserify node_modules/minbase/index.js | indexhtmlify > build/index.html",
     "fonts": "git clone ssb://%XoC0EPXVomSYODRk0g9w6iGuD/vPCjinTVVW6Dz1hEQ=.sha256 build/ssp"
   },
   "author": "Ev Bogue",
   "license": "MIT",
   "dependencies": {
+    "decent-ws": "^1.0.0",
     "deep-extend": "^0.5.0",
     "emoji-server": "^1.0.0",
     "minbase": "^3.5.1",
@@ -31,6 +33,7 @@
     "ssb-friends": "^2.4.0",
     "ssb-keys": "^7.0.13",
     "ssb-links": "^3.0.0",
+    "ssb-names": "^3.1.1",
     "ssb-query": "^2.0.0",
     "ssb-ref": "^2.9.1",
     "stack": "^0.1.0",
