@@ -1,6 +1,6 @@
 {
   "name": "decent-ssb",
-  "version": "4.4.2",
+  "version": "4.5.0",
   "description": "A decent(tralized) network for communication and development",
   "scripts": {
     "start": "node bin server",
