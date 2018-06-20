@@ -21,7 +21,7 @@ Decent combines all of the necessary parts of Scuttlebot for a simpler install p
 ### Install Decent on your local or vps
 
 ```
-% git clone http://github.com/evbogue/decent.git
+% git clone https://github.com/evbogue/decent.git
 % cd decent && npm install
 % npm run build
 % npm start
